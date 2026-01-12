@@ -5,8 +5,12 @@ const path = require("path");
 maxApi.addHandler("load", (filepath) => {
     const normalized = path.resolve(filepath);
 
-    // macOS: open file with Ableton Live
-    exec(`open "${normalized}"`, (error) => {
+    // Platform-specific command to open file with default application
+    const command = process.platform === "win32"
+        ? `start "" "${normalized}"`
+        : `open "${normalized}"`;
+
+    exec(command, (error) => {
         if (error) {
             maxApi.outlet("error", error.message);
         } else {
