@@ -1,0 +1,10 @@
+{
+  "name": "live-file-loader",
+  "version": "1.0.0",
+  "author": "Ben Bracken",
+  "description": "File operations for Ableton Live - load sets, add files, browse directories",
+  "tags": ["max for live", "file operations", "ableton", "utilities"],
+  "website": "https://github.com/benbracken/live-file-loader",
+  "max_version_min": "8.5.0",
+  "max_version_max": "none"
+}

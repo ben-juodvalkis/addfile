@@ -1,0 +1,16 @@
+{
+  "name": "live-file-loader",
+  "version": "1.0.0",
+  "description": "File operations for Ableton Live in Max for Live",
+  "main": "code/live-file-loader.js",
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": ["max", "maxforlive", "ableton", "live", "files"],
+  "author": "Ben Bracken",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benbracken/live-file-loader"
+  }
+}
