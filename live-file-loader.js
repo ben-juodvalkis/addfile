@@ -3,8 +3,13 @@ const { exec } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 
+// Debug mode - off by default, send "debug" message to toggle
+let debugEnabled = false;
+
 // Debug logging helper
 function debug(message, data = null) {
+    if (!debugEnabled) return;
+
     const timestamp = new Date().toISOString();
     if (data !== null) {
         maxApi.post(`[DEBUG ${timestamp}] ${message}:`, JSON.stringify(data));
@@ -12,6 +17,12 @@ function debug(message, data = null) {
         maxApi.post(`[DEBUG ${timestamp}] ${message}`);
     }
 }
+
+// Toggle debug mode
+maxApi.addHandler("debug", () => {
+    debugEnabled = !debugEnabled;
+    maxApi.post(`Debug mode ${debugEnabled ? "enabled" : "disabled"}`);
+});
 
 // Convert Mac HFS-style path (Volume:path:to:file) to POSIX path (/Volumes/Volume/path/to/file)
 // Only applies on macOS - Windows paths are left unchanged
